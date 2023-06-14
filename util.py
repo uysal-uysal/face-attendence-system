@@ -23,15 +23,10 @@ def get_button(window, text, color, command, fg='white'):
 
     return button
 
-
+global listbox
 selected_lesson = ""
 
-
-def get_lesson_listbox(window, hgt, wdt):
-    listbox = tk.Listbox(window, height=hgt, width=wdt)
-    listbox.pack()
-
-    items = [
+items = [
         "FIZ105 FIZIK LABORATUARI-1",
         "FIZ111 FIZIK-1",
         "MAT161 MATEMATIK-1",
@@ -88,6 +83,17 @@ def get_lesson_listbox(window, hgt, wdt):
         "YMH459 YAZILIM MUH.GUNCEL KONULAR",
         "YMH463 SAYISAL GORUNTU ISLEME YONTEMLERI",
     ]
+
+
+def update_listbox():
+    listbox.delete(0, tk.END)
+
+
+def get_lesson_listbox(window, hgt, wdt):
+
+    global listbox
+    listbox = tk.Listbox(window, height=hgt, width=wdt)
+    listbox.pack()
 
     for item in items:
         listbox.insert(tk.END, item)

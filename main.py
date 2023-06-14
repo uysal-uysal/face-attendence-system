@@ -16,11 +16,16 @@ class App:
         self.main_window = tk.Tk()
         self.main_window.geometry("1000x520+150+100")
 
-        self.lesson_dropdown_main_window = util.get_lesson_listbox(self.main_window, 10, 40)
+        listbox = util.get_lesson_listbox(self.main_window, 10, 40)
+
+        self.lesson_dropdown_main_window = listbox
         self.lesson_dropdown_main_window.place(x=675, y=50)
 
         self.login_button_main_window = util.get_button(self.main_window, 'login', 'white', self.login, fg='black')
         self.login_button_main_window.place(x=750, y=250)
+
+        self.login_button_main_window = util.get_button(self.main_window, 'sınıf', 'white', util.update_listbox, fg='black')
+        self.login_button_main_window.place(x=750, y=425)
 
         self.register_new_user_button_main_window = util.get_button(self.main_window, 'register new user', 'white',
                                                                     self.register_new_user, fg='black')
@@ -69,7 +74,10 @@ class App:
         else:
             util.msg_box('Welcome back !', 'Welcome, {}.'.format(name))
 
-        with open(self.log_path, 'a') as f:
+        log_folder = "./logs/"
+        log_file_name = log_folder + util.selected_lesson + ".txt"
+
+        with open(log_file_name, 'a') as f:
             f.write('{},{},{},in\n'.format(name, datetime.datetime.now(), util.selected_lesson))
             f.close()
 
