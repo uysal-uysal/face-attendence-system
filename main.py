@@ -16,20 +16,22 @@ class App:
         self.main_window = tk.Tk()
         self.main_window.geometry("1000x520+150+100")
 
-        listbox = util.get_lesson_listbox(self.main_window, 10, 40)
+        listbox = util.get_lesson_listbox(self.main_window, 10, 50)
 
         self.lesson_dropdown_main_window = listbox
+        self.lesson_dropdown_main_window.place(x=675, y=175)
+
+        self.login_button_main_window = util.get_button(self.main_window, 'Select Class', 'white', util.update_listbox, fg='black')
+        self.login_button_main_window.place(x=750, y=55)
+
+        self.lesson_dropdown_main_window = util.get_class_listbox(self.main_window, 4, 7)
         self.lesson_dropdown_main_window.place(x=675, y=50)
 
-        self.login_button_main_window = util.get_button(self.main_window, 'login', 'white', self.login, fg='black')
-        self.login_button_main_window.place(x=750, y=250)
+        self.login_button_main_window = util.get_button(self.main_window, 'Login', 'white', self.login, fg='black', height=2, width=7)
+        self.login_button_main_window.place(x=700, y=425)
 
-        self.login_button_main_window = util.get_button(self.main_window, 'sınıf', 'white', util.update_listbox, fg='black')
-        self.login_button_main_window.place(x=750, y=425)
-
-        self.register_new_user_button_main_window = util.get_button(self.main_window, 'register new user', 'white',
-                                                                    self.register_new_user, fg='black')
-        self.register_new_user_button_main_window.place(x=750, y=350)
+        self.register_new_user_button_main_window = util.get_button(self.main_window, 'Register', 'white', self.register_new_user, fg='black', height=2, width=7)
+        self.register_new_user_button_main_window.place(x=850, y=425)
 
         self.webcam_label = util.get_img_label(self.main_window)
         self.webcam_label.place(x=10, y=0, width=650, height=500)
