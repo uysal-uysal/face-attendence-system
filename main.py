@@ -16,16 +16,13 @@ class App:
         self.main_window = tk.Tk()
         self.main_window.geometry("1000x520+150+100")
 
-        listbox = util.get_lesson_listbox(self.main_window, 10, 50)
+        listbox = util.get_lesson_listbox(self.main_window, 15, 50)
 
         self.lesson_dropdown_main_window = listbox
-        self.lesson_dropdown_main_window.place(x=675, y=175)
-
-        self.login_button_main_window = util.get_button(self.main_window, 'Select Class', 'white', util.update_listbox, fg='black')
-        self.login_button_main_window.place(x=750, y=55)
+        self.lesson_dropdown_main_window.place(x=675, y=125)
 
         self.lesson_dropdown_main_window = util.get_class_listbox(self.main_window, 4, 7)
-        self.lesson_dropdown_main_window.place(x=675, y=50)
+        self.lesson_dropdown_main_window.place(x=675, y=35)
 
         self.login_button_main_window = util.get_button(self.main_window, 'Login', 'white', self.login, fg='black', height=2, width=7)
         self.login_button_main_window.place(x=700, y=425)

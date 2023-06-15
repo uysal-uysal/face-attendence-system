@@ -103,6 +103,8 @@ def update_listbox():
         lesson_listbox.delete(0, tk.END)
         for item in class_fourth:
             lesson_listbox.insert(tk.END, item)
+    lesson_listbox.select_set(0)
+
 
 def get_lesson_listbox(window, hgt, wdt):
     global lesson_listbox
